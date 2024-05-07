@@ -1,15 +1,15 @@
+
 const buscaIcon = document.querySelector("#buscaIcon");
-
-buscaIcon.addEventListener("click", () => {
+function buscar(){
+ 
   const apiKey = "73f7e679be122083cbb04095cd84a11b";
-
   const country = "BR";
 
   const city = document.getElementById("busca");
 
   const cidade = city.value;
 
-  const url = `http://api.openweathermap.org/data/2.5/weather?q=${cidade},${country}&appid=${apiKey}&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade},${country}&appid=${apiKey}&units=metric`;
 
   fetch(url)
     .then((response) => {
@@ -34,6 +34,9 @@ buscaIcon.addEventListener("click", () => {
     .catch((error) => {
       console.error(error);
     });
+}
+buscaIcon.addEventListener("click", () => {
+  buscar()
 });
 
 //mostras na tela
